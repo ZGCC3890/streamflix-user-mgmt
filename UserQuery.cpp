@@ -5,18 +5,18 @@
 
 using namespace std;
 
-bool genderMale = false;
-bool genderFemale = false;
-bool userID = false;
-bool userNickname = false;
-bool userAgeInput1 = false;
-bool userAgeInput2 = false;
-bool showPage = false;
+bool genderMale_ = false;
+bool genderFemale_ = false;
+bool userTag_ = false;
+bool userName_ = false;
+bool userAgeInput1_ = false;
+bool userAgeInput2_ = false;
+bool showPage_ = false;
 int curPage = 0;
 int pageNum = 0;
-std::string userid;
-std::string usernickname;
-std::string userAge1 = "0", userAge2 = "0";
+std::string s_userTag;
+std::string s_userName;
+std::string s_userAge1 = "0", s_userAge2 = "0";
 object userTag = {220, 70, 350, 40};
 object userTagInputBar = {userTag.posx + 100, userTag.posy + 5, 240, 30};
 object userName = {userTag.posx + userTag.width + 30, userTag.posy, 350, 40};
@@ -48,7 +48,7 @@ void ClearUserQueryGraph(){
     OutputText(540 + 10, 185 + 5, BLACK, 20, 0, "性别", "宋体");
     OutputText(620 + 10, 185 + 5, BLACK, 20, 0, "年龄", "宋体");
     OutputText(690 + 10, 185 + 5, BLACK, 20, 0, "电子邮件", "宋体");
-    if(showPage){
+    if(showPage_){
         setfillcolor(CommonBlue);
         fillroundrect_(pageUpButton);
         fillroundrect_(pageDownButton);
@@ -110,18 +110,18 @@ void UserQuery(){
             ButtonAnimation(msg, userTagInputBar, WHITE, CommonBlue, 3);
             ButtonAnimation(msg, userNameInputBar, WHITE, CommonBlue, 3);
 
-            if(genderMale) ButtonAnimation(msg, userGenderMale, WHITE, WHITE);
+            if(genderMale_) ButtonAnimation(msg, userGenderMale, WHITE, WHITE);
             else ButtonAnimation(msg, userGenderMale, WHITE, CommonBlue);
 
-            if(genderFemale) ButtonAnimation(msg, userGenderFemale, WHITE, WHITE);
+            if(genderFemale_) ButtonAnimation(msg, userGenderFemale, WHITE, WHITE);
             else ButtonAnimation(msg, userGenderFemale, WHITE, CommonBlue);
 
-            if(userID) OutputText(userTagInputBar.posx + 10, userTagInputBar.posy + 8, BLACK, 15, 0, userid.c_str(), "宋体");
-            if(userNickname) OutputText(userNameInputBar.posx + 10, userNameInputBar.posy + 8, BLACK, 15, 0, usernickname.c_str(), "宋体");
-            if(userAgeInput1) OutputText(userAgeInputBar1.posx + 10, userAgeInputBar1.posy + 8, BLACK, 15, 0, userAge1.c_str(), "宋体");
-            if(userAgeInput2) OutputText(userAgeInputBar2.posx + 10, userAgeInputBar2.posy + 8, BLACK, 15, 0, userAge2.c_str(), "宋体");
+            if(userTag_) OutputText(userTagInputBar.posx + 10, userTagInputBar.posy + 8, BLACK, 15, 0, s_userTag.c_str(), "宋体");
+            if(userName_) OutputText(userNameInputBar.posx + 10, userNameInputBar.posy + 8, BLACK, 15, 0, s_userName.c_str(), "宋体");
+            if(userAgeInput1_) OutputText(userAgeInputBar1.posx + 10, userAgeInputBar1.posy + 8, BLACK, 15, 0, s_userAge1.c_str(), "宋体");
+            if(userAgeInput2_) OutputText(userAgeInputBar2.posx + 10, userAgeInputBar2.posy + 8, BLACK, 15, 0, s_userAge2.c_str(), "宋体");
 
-            if(showPage){
+            if(showPage_){
                 ButtonAnimation(msg, pageUpButton, WHITE, CommonBlue);
                 ButtonAnimation(msg, pageDownButton, WHITE, CommonBlue);
                 OutputText(815, 530, BLACK, 20, 0, to_string(curPage + 1).c_str(), "宋体");
@@ -159,48 +159,48 @@ void UserQuery(){
                         fillroundrect_(userTagInputBar);
                         char s[100];
                         InputBox(s, 100, "请输入用户ID");
-                        userID = true;
-                        userid = s;
+                        userTag_ = true;
+                        s_userTag = s;
                     }
                     else if (isInside(msg, userNameInputBar)){
                         fillroundrect_(userNameInputBar);
                         char s[100];
                         InputBox(s, 100, "请输入用户昵称");
-                        userNickname = true;
-                        usernickname = s;
+                        userName_ = true;
+                        s_userName = s;
                     }
                     else if (isInside(msg, userGenderMale)) {
-                        if(genderFemale) {
-                            genderFemale = false;
-                            genderMale = true;
-                        }else if(genderMale){
-                            genderMale = false;
+                        if(genderFemale_) {
+                            genderFemale_ = false;
+                            genderMale_ = true;
+                        }else if(genderMale_){
+                            genderMale_ = false;
                         }else {
-                            genderMale = true;
+                            genderMale_ = true;
                         }
                     }
                     else if (isInside(msg, userGenderFemale)){
-                        if(genderMale){
-                            genderMale = false;
-                            genderFemale = true;
-                        }else if(genderFemale){
-                            genderFemale = false;
+                        if(genderMale_){
+                            genderMale_ = false;
+                            genderFemale_ = true;
+                        }else if(genderFemale_){
+                            genderFemale_ = false;
                         }else{}
-                        genderFemale = true;
+                        genderFemale_ = true;
                     }
                     else if(isInside(msg, userAgeInputBar1)){
                         fillroundrect_(userAgeInputBar1);
                         char s[100];
                         InputBox(s, 100, "请输入用户年龄限制");
-                        userAgeInput1 = true;
-                        userAge1 = s;
+                        userAgeInput1_ = true;
+                        s_userAge1 = s;
                     }
                     else if(isInside(msg, userAgeInputBar2)){
                         fillroundrect_(userAgeInputBar2);
                         char s[100];
                         InputBox(s, 100, "请输入用户年龄限制");
-                        userAgeInput2 = true;
-                        userAge2 = s;
+                        userAgeInput2_ = true;
+                        s_userAge2 = s;
                     }
                     else if(isInside(msg, pageUpButton) && curPage != pageNum) {
                         curPage++;
@@ -214,13 +214,13 @@ void UserQuery(){
                         ClearUserQueryGraph();
                         conditions.clear();
                         res.clear();
-                        genderMale = false;
-                        genderFemale = false;
-                        userID = false;
-                        userNickname = false;
-                        userAgeInput1 = false;
-                        userAgeInput2 = false;
-                        showPage = false;
+                        genderMale_ = false;
+                        genderFemale_ = false;
+                        userTag_ = false;
+                        userName_ = false;
+                        userAgeInput1_ = false;
+                        userAgeInput2_ = false;
+                        showPage_ = false;
                         curPage = pageNum = 0;
                         setfillcolor(WHITE);
                         fillroundrect_(userTagInputBar);
@@ -230,18 +230,18 @@ void UserQuery(){
                     }
                     else if(isInside(msg, userSearchButton)) {
                         ClearUserQueryGraph();
-                        if (userNickname) conditions.push_back("username LIKE '%" + usernickname + "%'");
-                        if (genderMale) conditions.push_back("gender = 'male'");
-                        if (genderFemale) conditions.push_back("gender = 'female'");
-                        if (userID) conditions.push_back("userid = '" + userid + "'");
-                        if (userAgeInput1 && userAgeInput2)
-                            conditions.push_back("age BETWEEN " + userAge1 + " AND " + userAge2);
-                        else if (userAgeInput1) conditions.push_back("age = " + userAge1);
-                        else if (userAgeInput2) conditions.push_back("age = " + userAge2);
+                        if (userName_) conditions.push_back("username LIKE '%" + s_userName + "%'");
+                        if (genderMale_) conditions.push_back("gender = 'male'");
+                        if (genderFemale_) conditions.push_back("gender = 'female'");
+                        if (userTag_) conditions.push_back("userid = '" + s_userTag + "'");
+                        if (userAgeInput1_ && userAgeInput2_)
+                            conditions.push_back("age BETWEEN " + s_userAge1 + " AND " + s_userAge2);
+                        else if (userAgeInput1_) conditions.push_back("age = " + s_userAge1);
+                        else if (userAgeInput2_) conditions.push_back("age = " + s_userAge2);
 
                         string where_clause = "";
                         res.clear();
-                        showPage = false;
+                        showPage_ = false;
                         if (!conditions.empty()) {
                             where_clause = " WHERE " + conditions[0];
                             for (size_t i = 1; i < conditions.size(); ++i) {
@@ -254,9 +254,9 @@ void UserQuery(){
                         //多页处理
                         curPage = 0, pageNum = (float(res.size()) + 0.5) / 10;
                         if(res.size() > 10){
-                            showPage = true;
+                            showPage_ = true;
                         }
-                        if(showPage){
+                        if(showPage_){
                             setfillcolor(CommonBlue);
                             fillroundrect_(pageUpButton);
                             fillroundrect_(pageDownButton);

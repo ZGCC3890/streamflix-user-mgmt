@@ -3,19 +3,19 @@
 #include "ustil.h"
 
 //用户查询相关
-//~InputBar为输入框 纯小写为存储用string 驼峰命名为bool标志
-extern bool genderMale;
-extern bool genderFemale;
-extern bool userID;
-extern bool userNickname;
-extern bool userAgeInput1;
-extern bool userAgeInput2;
-extern bool showPage;
+//~InputBar为输入框 s_~为存储用string ~_为bool标志
+extern bool genderMale_;
+extern bool genderFemale_;
+extern bool userTag_;
+extern bool userName_;
+extern bool userAgeInput1_;
+extern bool userAgeInput2_;
+extern bool showPage_;
 extern int curPage;
 extern int pageNum;
-extern std::string userid;
-extern std::string usernickname;
-extern std::string userAge1, userAge2;
+extern std::string s_userTag;
+extern std::string s_userName;
+extern std::string s_userAge1, s_userAge2;
 extern object userTag;
 extern object userTagInputBar;
 extern object userName;
