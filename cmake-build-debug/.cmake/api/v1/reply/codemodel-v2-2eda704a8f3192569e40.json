@@ -1,0 +1,160 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "build-libpqxx",
+					"childIndexes" : 
+					[
+						2,
+						3,
+						4
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-build-libpqxx-Debug-e03055249e42352df239.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "libpqxx"
+				},
+				{
+					"build" : "build-libpqxx/src",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-build-libpqxx.src-Debug-63027616810196f8feb6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "libpqxx/src",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "build-libpqxx/include",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-build-libpqxx.include-Debug-6ee1e78b826f902ee087.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "libpqxx/include"
+				},
+				{
+					"build" : "build-libpqxx/test",
+					"jsonFile" : "directory-build-libpqxx.test-Debug-d11e8e03c956bdcbd6df.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "libpqxx/test",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "CPP",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4
+					],
+					"name" : "libpqxx",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "CPP::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-CPP-Debug-e2fe59a0a6fc588e551d.json",
+					"name" : "CPP",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "pqxx::@c43edb16e53f8d75f02f",
+					"jsonFile" : "target-pqxx-Debug-3ba250d3d005e964c7f0.json",
+					"name" : "pqxx",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "runner::@040d431fd587ea8917d7",
+					"jsonFile" : "target-runner-Debug-785b8feb20be21dbcbbe.json",
+					"name" : "runner",
+					"projectIndex" : 1
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "F:/JetBrains/CPP/cmake-build-debug",
+		"source" : "F:/JetBrains/CPP"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
